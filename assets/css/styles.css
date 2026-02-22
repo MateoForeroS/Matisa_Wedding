@@ -237,71 +237,90 @@ p{ margin:0 0 12px; line-height:1.7; font-size:1.08rem; }
   overflow:hidden;
 }
 
-/* ===== Responsive móvil (teléfono) ===== */
+/* ===== FIX móvil (reemplaza tu responsive actual por este) ===== */
 @media (max-width: 520px){
+
+  /* Topbar: evita montajes */
   .topbar__inner{
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     gap: 10px;
-    padding: 12px 0;
+    padding: 10px 0;
+  }
+  .brand__title{ font-size: 1.55rem; }
+  .brand__subtitle{ font-size: .78rem; letter-spacing: .10em; }
+  #musicBtn{ padding: 9px 12px; }
+
+  /* HERO: que no quede gigante ni “cortado” */
+  .hero{
+    min-height: auto;          /* clave */
+  }
+  .hero__content{
+    padding: 18px 0 18px;      /* clave */
   }
 
-  .brand__title{ font-size: 1.6rem; }
-  .brand__subtitle{ font-size: .85rem; letter-spacing: .10em; }
+  /* En móvil: Germany como fondo del hero */
+  .hero__bg{
+    background:
+      linear-gradient(180deg, rgba(244,239,230,.25) 0%, rgba(244,239,230,.94) 75%),
+      url("../img/Germnany.jpeg") center/cover no-repeat;
+  }
 
-  #musicBtn{ align-self: flex-end; }
-
-  .hero{ min-height: 78vh; }
-  .hero__content{ padding: 34px 0 26px; }
+  /* Oculta la foto extra (la que te está dañando el layout) */
+  .hero__photo{
+    display: none;
+  }
 
   .hero h1{
-    font-size: 2.0rem;
+    font-size: 1.9rem;
     line-height: 1.12;
-    margin-bottom: 8px;
+    margin: 0 0 6px;
   }
-
   .lead{
-    font-size: 1.02rem;
-    line-height: 1.55;
+    font-size: 1.0rem;
+    line-height: 1.45;
+    margin-bottom: 10px;
   }
 
+  /* Cards: una por fila, compactas y más opacas */
   .hero__cards{
     grid-template-columns: 1fr;
-    gap: 12px;
-    margin: 18px 0 14px;
+    gap: 10px;
+    margin: 12px 0 12px;
   }
-
-  .card{ padding: 12px 12px 10px; }
-  .card__k{ font-size: .85rem; }
+  .card{
+    padding: 10px 12px;
+    background: rgba(255,255,255,.78); /* más sólido */
+    backdrop-filter: blur(6px);
+  }
+  .card__k{ font-size: .78rem; }
   .card__v{ font-size: 1.02rem; }
 
+  /* Botones: en columna para que no queden “raros” */
   .hero__cta{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
+    width: min(360px, 100%);
+  }
+  .hero__cta .btn{
+    width: 100%;
   }
 
-  .hero__photo{
-    max-width: 100%;
-    margin-top: 18px;
-  }
-
-  .section{ padding: 40px 0; }
-  h2{ font-size: 2.1rem; }
+  /* Secciones */
+  .section{ padding: 36px 0; }
+  .grid{ grid-template-columns: 1fr; gap: 14px; }
+  h2{ font-size: 2.0rem; }
   p{ font-size: 1.02rem; }
 
-  .grid{
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
+  /* Galería */
   .gallery{
     grid-template-columns: 1fr;
     gap: 12px;
   }
-
   .gallery img{ height: 240px; }
 
+  /* Footer */
   .footer__inner{
     flex-direction: column;
     align-items: flex-start;
