@@ -136,7 +136,7 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
 .hero__cta{ display:flex; gap:10px; flex-wrap:wrap; }
 .hero__cta--links{ margin-top:14px; }
 
-/* Foto Germany en el hero */
+/* Foto Germany (solo desktop/tablet; en móvil se oculta) */
 .hero__photo{
   margin-top: 28px;
   max-width: 520px;
@@ -237,10 +237,12 @@ p{ margin:0 0 12px; line-height:1.7; font-size:1.08rem; }
   overflow:hidden;
 }
 
-/* ===== Responsive RELACIONAL (móvil) ===== */
+/* =========================
+ Responsive RELACIONAL (móvil)
+ ========================= */
 @media (max-width: 520px){
 
-  /* 1) Variables relacionales */
+  /* Variables relacionales */
   :root{
     --padX: clamp(14px, 4vw, 18px);
     --padY: clamp(14px, 3.6vw, 20px);
@@ -248,11 +250,12 @@ p{ margin:0 0 12px; line-height:1.7; font-size:1.08rem; }
     --radiusM: clamp(14px, 3.2vw, 18px);
   }
 
-  /* 2) Topbar (sin montajes) */
+  /* Contenedor */
   .container{
     width: min(100% - (2 * var(--padX)), 560px);
   }
 
+  /* Topbar */
   .topbar__inner{
     padding: 10px 0;
     display: grid;
@@ -270,9 +273,8 @@ p{ margin:0 0 12px; line-height:1.7; font-size:1.08rem; }
     justify-self: end;
   }
 
-  /* 3) HERO: alto controlado por viewport (relacional) */
+  /* HERO: alto controlado por viewport */
   .hero{
-    /* dvh = viewport real en móviles modernos, vh fallback */
     min-height: min(100dvh, 760px);
     min-height: min(100vh, 760px);
     align-items: start;
@@ -282,17 +284,18 @@ p{ margin:0 0 12px; line-height:1.7; font-size:1.08rem; }
     padding: var(--padY) 0 var(--padY);
   }
 
-  /* Fondo: usa Germany en móvil y ancla arriba para que no se “corte raro” */
+  /* Fondo: Germany en móvil */
   .hero__bg{
     background:
       linear-gradient(180deg, rgba(244,239,230,.28) 0%, rgba(244,239,230,.95) 72%),
       url("../img/Germnany.jpeg") center top / cover no-repeat;
+    transform: none;
   }
 
-  /* Oculta la foto extra para no duplicar alturas */
+  /* Oculta foto extra */
   .hero__photo{ display:none; }
 
-  /* 4) Tipografías relacionales */
+  /* Tipografías */
   .hero h1{
     font-size: clamp(1.7rem, 7.2vw, 2.2rem);
     line-height: 1.1;
@@ -306,7 +309,7 @@ p{ margin:0 0 12px; line-height:1.7; font-size:1.08rem; }
     max-width: 42ch;
   }
 
-  /* 5) Cards: tamaño y separación relacional, y ancho relativo */
+  /* Cards */
   .hero__cards{
     grid-template-columns: 1fr;
     gap: var(--gap);
@@ -330,7 +333,7 @@ p{ margin:0 0 12px; line-height:1.7; font-size:1.08rem; }
     font-size: clamp(1.0rem, 3.7vw, 1.08rem);
   }
 
-  /* 6) Botones: siempre caben (relacional) */
+  /* Botones */
   .hero__cta{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -345,19 +348,14 @@ p{ margin:0 0 12px; line-height:1.7; font-size:1.08rem; }
     border-radius: 999px;
   }
 
-  /* Si es muy angosto, baja a 1 columna */
-  @media (max-width: 380px){
-    .hero__cta{ grid-template-columns: 1fr; }
-  }
-
-  /* 7) Secciones */
+  /* Secciones */
   .section{ padding: clamp(30px, 7vw, 42px) 0; }
   .grid{ grid-template-columns: 1fr; gap: clamp(12px, 4vw, 16px); }
 
   h2{ font-size: clamp(1.9rem, 8vw, 2.2rem); }
   p{ font-size: clamp(1.0rem, 3.8vw, 1.08rem); }
 
-  /* 8) Galería */
+  /* Galería */
   .gallery{
     grid-template-columns: 1fr;
     gap: var(--gap);
@@ -367,16 +365,15 @@ p{ margin:0 0 12px; line-height:1.7; font-size:1.08rem; }
     border-radius: var(--radiusM);
   }
 
-  /* 9) Footer */
+  /* Footer */
   .footer__inner{
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
   }
 }
-/* Teléfonos muy angostos */
-@media (max-width: 360px){
-  .hero__cta{
-    grid-template-columns: 1fr;
-  }
+
+/* Teléfonos angostos: botones en 1 columna */
+@media (max-width: 380px){
+  .hero__cta{ grid-template-columns: 1fr; }
 }
