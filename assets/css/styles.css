@@ -237,97 +237,143 @@ p{ margin:0 0 12px; line-height:1.7; font-size:1.08rem; }
   overflow:hidden;
 }
 
-/* ===== FIX móvil (reemplaza tu responsive actual por este) ===== */
+/* ===== Responsive RELACIONAL (móvil) ===== */
 @media (max-width: 520px){
 
-  /* Topbar: evita montajes */
+  /* 1) Variables relacionales */
+  :root{
+    --padX: clamp(14px, 4vw, 18px);
+    --padY: clamp(14px, 3.6vw, 20px);
+    --gap:  clamp(10px, 2.6vw, 14px);
+    --radiusM: clamp(14px, 3.2vw, 18px);
+  }
+
+  /* 2) Topbar (sin montajes) */
+  .container{
+    width: min(100% - (2 * var(--padX)), 560px);
+  }
+
   .topbar__inner{
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 10px;
     padding: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: var(--gap);
   }
-  .brand__title{ font-size: 1.55rem; }
-  .brand__subtitle{ font-size: .78rem; letter-spacing: .10em; }
-  #musicBtn{ padding: 9px 12px; }
 
-  /* HERO: que no quede gigante ni “cortado” */
+  .brand__title{ font-size: clamp(1.35rem, 5.6vw, 1.65rem); }
+  .brand__subtitle{ font-size: clamp(.72rem, 2.9vw, .86rem); letter-spacing: .10em; }
+
+  #musicBtn{
+    padding: clamp(8px, 2.6vw, 10px) clamp(10px, 3.2vw, 14px);
+    font-size: clamp(.82rem, 3.1vw, .95rem);
+    justify-self: end;
+  }
+
+  /* 3) HERO: alto controlado por viewport (relacional) */
   .hero{
-    min-height: auto;          /* clave */
-  }
-  .hero__content{
-    padding: 18px 0 18px;      /* clave */
+    /* dvh = viewport real en móviles modernos, vh fallback */
+    min-height: min(100dvh, 760px);
+    min-height: min(100vh, 760px);
+    align-items: start;
   }
 
-  /* En móvil: Germany como fondo del hero */
+  .hero__content{
+    padding: var(--padY) 0 var(--padY);
+  }
+
+  /* Fondo: usa Germany en móvil y ancla arriba para que no se “corte raro” */
   .hero__bg{
     background:
-      linear-gradient(180deg, rgba(244,239,230,.25) 0%, rgba(244,239,230,.94) 75%),
-      url("../img/Germnany.jpeg") center/cover no-repeat;
+      linear-gradient(180deg, rgba(244,239,230,.28) 0%, rgba(244,239,230,.95) 72%),
+      url("../img/Germnany.jpeg") center top / cover no-repeat;
   }
 
-  /* Oculta la foto extra (la que te está dañando el layout) */
-  .hero__photo{
-    display: none;
-  }
+  /* Oculta la foto extra para no duplicar alturas */
+  .hero__photo{ display:none; }
 
+  /* 4) Tipografías relacionales */
   .hero h1{
-    font-size: 1.9rem;
-    line-height: 1.12;
+    font-size: clamp(1.7rem, 7.2vw, 2.2rem);
+    line-height: 1.1;
     margin: 0 0 6px;
   }
+
   .lead{
-    font-size: 1.0rem;
+    font-size: clamp(.98rem, 3.9vw, 1.08rem);
     line-height: 1.45;
-    margin-bottom: 10px;
+    margin: 0 0 10px;
+    max-width: 42ch;
   }
 
-  /* Cards: una por fila, compactas y más opacas */
+  /* 5) Cards: tamaño y separación relacional, y ancho relativo */
   .hero__cards{
     grid-template-columns: 1fr;
-    gap: 10px;
-    margin: 12px 0 12px;
+    gap: var(--gap);
+    margin: clamp(10px, 3vw, 14px) 0 clamp(10px, 3vw, 14px);
+    width: min(100%, 92vw);
   }
+
   .card{
-    padding: 10px 12px;
-    background: rgba(255,255,255,.78); /* más sólido */
+    padding: clamp(10px, 3.2vw, 14px);
+    border-radius: var(--radiusM);
+    background: rgba(255,255,255,.80);
     backdrop-filter: blur(6px);
   }
-  .card__k{ font-size: .78rem; }
-  .card__v{ font-size: 1.02rem; }
 
-  /* Botones: en columna para que no queden “raros” */
+  .card__k{
+    font-size: clamp(.72rem, 2.9vw, .82rem);
+    letter-spacing: .10em;
+  }
+
+  .card__v{
+    font-size: clamp(1.0rem, 3.7vw, 1.08rem);
+  }
+
+  /* 6) Botones: siempre caben (relacional) */
   .hero__cta{
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    width: min(360px, 100%);
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+    width: min(100%, 92vw);
   }
+
   .hero__cta .btn{
     width: 100%;
+    padding: clamp(10px, 3.2vw, 12px) clamp(12px, 3.6vw, 14px);
+    font-size: clamp(.9rem, 3.2vw, 1rem);
+    border-radius: 999px;
   }
 
-  /* Secciones */
-  .section{ padding: 36px 0; }
-  .grid{ grid-template-columns: 1fr; gap: 14px; }
-  h2{ font-size: 2.0rem; }
-  p{ font-size: 1.02rem; }
+  /* Si es muy angosto, baja a 1 columna */
+  @media (max-width: 380px){
+    .hero__cta{ grid-template-columns: 1fr; }
+  }
 
-  /* Galería */
+  /* 7) Secciones */
+  .section{ padding: clamp(30px, 7vw, 42px) 0; }
+  .grid{ grid-template-columns: 1fr; gap: clamp(12px, 4vw, 16px); }
+
+  h2{ font-size: clamp(1.9rem, 8vw, 2.2rem); }
+  p{ font-size: clamp(1.0rem, 3.8vw, 1.08rem); }
+
+  /* 8) Galería */
   .gallery{
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: var(--gap);
   }
-  .gallery img{ height: 240px; }
+  .gallery img{
+    height: clamp(220px, 55vw, 320px);
+    border-radius: var(--radiusM);
+  }
 
-  /* Footer */
+  /* 9) Footer */
   .footer__inner{
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
   }
 }
-
 /* Teléfonos muy angostos */
 @media (max-width: 360px){
   .hero__cta{
