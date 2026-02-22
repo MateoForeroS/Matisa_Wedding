@@ -1,4 +1,8 @@
+/* =========================
+ FILE: assets/js/app.js
+ ========================= */
 /* global YT */
+
 let player = null;
 let isReady = false;
 let isPlayingAudio = false;
@@ -28,10 +32,7 @@ window.onYouTubeIframeAPIReady = function () {
     events: {
       onReady: () => {
         isReady = true;
-        // intenta arrancar en mute (permitido)
-        try {
-          player.playVideo();
-        } catch (e) {}
+        try { player.playVideo(); } catch (e) {}
       }
     }
   });
@@ -41,7 +42,6 @@ function toggleMusic() {
   if (!isReady || !player) return;
 
   if (!isPlayingAudio) {
-    // usuario interactuó: ahora sí se puede activar audio
     try {
       player.unMute();
       player.setVolume(60);
@@ -52,7 +52,6 @@ function toggleMusic() {
     return;
   }
 
-  // si ya está sonando, pausamos
   try {
     player.pauseVideo();
     isPlayingAudio = false;
@@ -64,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("musicBtn");
   if (btn) btn.addEventListener("click", toggleMusic);
 
-  // UX: primer clic en cualquier parte también activa música (opcional)
+  // Primer toque en cualquier parte activa música (mejor UX móvil)
   const oneTime = () => {
     if (!isPlayingAudio) toggleMusic();
     window.removeEventListener("pointerdown", oneTime);
