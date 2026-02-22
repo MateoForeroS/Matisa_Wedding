@@ -1,7 +1,11 @@
+/* =========================
+ FILE: assets/css/styles.css
+ ========================= */
+
+/* Tipos estilo invitación */
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Great+Vibes&display=swap");
 
 :root{
-  /* PDF look */
   --paper:#F4EFE6;      /* marfil */
   --ink:#1B1B1B;        /* negro suave */
   --muted:#5A564F;      /* gris cálido */
@@ -26,7 +30,7 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
   margin-inline:auto;
 }
 
-/* TOPBAR (más limpio, tipo invitación) */
+/* TOPBAR */
 .topbar{
   position:sticky; top:0; z-index:50;
   background: rgba(244,239,230,.88);
@@ -72,7 +76,7 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
   background: rgba(27,27,27,.05);
 }
 
-/* HERO (como la pieza: foto grande + overlay suave) */
+/* HERO */
 .hero{
   position:relative;
   min-height: 76vh;
@@ -83,7 +87,6 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
 }
 .hero__bg{
   position:absolute; inset:0;
-  /* Cambia aquí la foto principal */
   background:
     linear-gradient(180deg, rgba(244,239,230,.10) 0%, rgba(244,239,230,.92) 78%),
     url("../img/together-ring.jpeg") center/cover no-repeat;
@@ -104,7 +107,7 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
   max-width:65ch;
 }
 
-/* Cards tipo invitación */
+/* Cards */
 .hero__cards{
   display:grid;
   grid-template-columns: repeat(3, minmax(0,1fr));
@@ -131,6 +134,20 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
 }
 
 .hero__cta{ display:flex; gap:10px; flex-wrap:wrap; }
+.hero__cta--links{ margin-top:14px; }
+
+/* Foto Germany en el hero */
+.hero__photo{
+  margin-top: 28px;
+  max-width: 520px;
+}
+.hero__photo img{
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
 
 /* SECCIONES */
 .section{ padding:56px 0; }
@@ -148,12 +165,13 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
 
 h2{
   margin:0 0 10px;
-  font-family:"Great Vibes", cursive; /* como el PDF */
+  font-family:"Great Vibes", cursive;
   font-size: 2.3rem;
   font-weight:400;
 }
 p{ margin:0 0 12px; line-height:1.7; font-size:1.08rem; }
 .muted{ color:var(--muted); }
+.big{ font-size:1.15rem; font-weight:600; }
 
 .panel{
   background: rgba(255,255,255,.55);
@@ -171,6 +189,7 @@ p{ margin:0 0 12px; line-height:1.7; font-size:1.08rem; }
   text-transform:uppercase;
   color:var(--muted);
 }
+.panel__actions{ margin-top:14px; }
 
 .list{ margin:0; padding-left:18px; color:var(--muted); line-height:1.7; }
 .list strong{ color:var(--ink); }
@@ -184,7 +203,7 @@ p{ margin:0 0 12px; line-height:1.7; font-size:1.08rem; }
   font-size:.98rem;
 }
 
-/* Galería más parecida a collage del PDF */
+/* Galería */
 .gallery{
   display:grid;
   grid-template-columns: repeat(3, minmax(0,1fr));
@@ -201,6 +220,7 @@ p{ margin:0 0 12px; line-height:1.7; font-size:1.08rem; }
   box-shadow: var(--shadow);
 }
 
+/* Footer */
 .footer{
   border-top:1px solid var(--line);
   padding:22px 0;
@@ -217,9 +237,81 @@ p{ margin:0 0 12px; line-height:1.7; font-size:1.08rem; }
   overflow:hidden;
 }
 
-@media (max-width: 860px){
-  .hero__cards{ grid-template-columns:1fr; }
-  .grid{ grid-template-columns:1fr; }
-  .gallery{ grid-template-columns:1fr; }
-  .gallery img{ height:260px; }
+/* ===== Responsive móvil (teléfono) ===== */
+@media (max-width: 520px){
+  .topbar__inner{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 0;
+  }
+
+  .brand__title{ font-size: 1.6rem; }
+  .brand__subtitle{ font-size: .85rem; letter-spacing: .10em; }
+
+  #musicBtn{ align-self: flex-end; }
+
+  .hero{ min-height: 78vh; }
+  .hero__content{ padding: 34px 0 26px; }
+
+  .hero h1{
+    font-size: 2.0rem;
+    line-height: 1.12;
+    margin-bottom: 8px;
+  }
+
+  .lead{
+    font-size: 1.02rem;
+    line-height: 1.55;
+  }
+
+  .hero__cards{
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 18px 0 14px;
+  }
+
+  .card{ padding: 12px 12px 10px; }
+  .card__k{ font-size: .85rem; }
+  .card__v{ font-size: 1.02rem; }
+
+  .hero__cta{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .hero__photo{
+    max-width: 100%;
+    margin-top: 18px;
+  }
+
+  .section{ padding: 40px 0; }
+  h2{ font-size: 2.1rem; }
+  p{ font-size: 1.02rem; }
+
+  .grid{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .gallery{
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .gallery img{ height: 240px; }
+
+  .footer__inner{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+/* Teléfonos muy angostos */
+@media (max-width: 360px){
+  .hero__cta{
+    grid-template-columns: 1fr;
+  }
 }
