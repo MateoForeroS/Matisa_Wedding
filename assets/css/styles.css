@@ -268,7 +268,7 @@ p{
 #dresscode .panel{
   max-width:620px;
   margin-inline:auto;
-  text-align:left;
+  text-align:cender;
 }
 
 /* =========================
@@ -291,7 +291,7 @@ p{
 #rsvp .panel{
   max-width:620px;
   margin-inline:auto;
-  text-align:left;
+  text-align:center;
 }
 
 /* =========================
