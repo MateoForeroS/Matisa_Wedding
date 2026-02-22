@@ -7,9 +7,7 @@
   <title>Isabel & Mateo | 01 Mayo 2026</title>
 
   <link rel="preconnect" href="https://www.youtube-nocookie.com" />
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <script src="assets/js/app.js"></script>
-  <img src="assets/img/belgium.jpeg">
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
 <body>
@@ -29,7 +27,9 @@
 
   <!-- HERO -->
   <section class="hero" aria-label="Portada">
+    <!-- La imagen principal del hero se define en CSS (styles.css) -->
     <div class="hero__bg" role="img" aria-label="Foto principal"></div>
+
     <div class="container hero__content">
       <h1>¡Acompáñanos!</h1>
       <p class="lead">
@@ -58,8 +58,8 @@
     </div>
   </section>
 
-  <!-- SECCIONES -->
   <main>
+    <!-- EL LUGAR -->
     <section class="section" id="lugar">
       <div class="container grid">
         <div>
@@ -67,12 +67,11 @@
           <p>
             La boda se realizará en la <strong>Finca Hacienda Caracolí</strong>, ubicada en <strong>Zipacón, Cundinamarca</strong>.
           </p>
-          <p class="muted">
-            Clima: a la misma altura de Bogotá — trae abrigo.
-          </p>
+          <p class="muted">Clima: a la misma altura de Bogotá — trae abrigo.</p>
 
-          <!-- Reemplaza el href por tu link real de Google Maps si lo tienes -->
-          <a class="btn btn--primary" href="#" target="_blank" rel="noopener">
+          <a class="btn btn--primary"
+             href="https://maps.app.goo.gl/mxfwwErXZ5ZzQezk6"
+             target="_blank" rel="noopener">
             Abrir en Google Maps
           </a>
         </div>
@@ -88,6 +87,7 @@
       </div>
     </section>
 
+    <!-- DRESS CODE -->
     <section class="section section--alt" id="dresscode">
       <div class="container grid">
         <div>
@@ -101,37 +101,66 @@
             <span class="chip">Colores reservados: Blanco marfil</span>
             <span class="chip">Colores reservados: Terracota</span>
           </div>
+
+          <div class="hero__cta" style="margin-top:14px;">
+            <a class="btn btn--ghost"
+               href="https://fromthewardrobe.com/fall-boho-wedding-guest-dresses-for-october/?utm_source=Pinterest&utm_medium=organic"
+               target="_blank" rel="noopener">
+              Ideas vestidos (mujer)
+            </a>
+
+            <a class="btn btn--ghost"
+               href="https://es.pinterest.com/search/pins/?q=invitados%20boda%20boho%20chic%20hombre&rs=ac&len=21&source_id=ac_omaHewY7&eq=invitados%20boda%20boho%20c&etslf=13181"
+               target="_blank" rel="noopener">
+              Ideas outfit (hombre)
+            </a>
+          </div>
         </div>
 
         <div class="panel">
           <h3>Sugerencia de regalo</h3>
           <p class="big">Lluvia de sobres</p>
+
+          <div style="margin-top:14px;">
+            <a class="btn btn--ghost" href="Matisa_Wedding.pdf" target="_blank" rel="noopener">
+              Ver invitación (PDF)
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- GALERÍA (con nombres EXACTOS como están en tu repo) -->
     <section class="section" id="galeria">
       <div class="container">
         <h2>Galería</h2>
-        <p class="muted">Cambia las fotos en <code>assets/img/</code></p>
+        <p class="muted">Fotos desde <code>assets/img/</code></p>
 
         <div class="gallery">
-          <img src="assets/img/photo1.jpg" alt="Foto 1" loading="lazy" />
-          <img src="assets/img/photo2.jpg" alt="Foto 2" loading="lazy" />
-          <img src="assets/img/photo3.jpg" alt="Foto 3" loading="lazy" />
+          <img src="assets/img/Belgium.jpeg" alt="Foto Belgium" loading="lazy" />
+          <img src="assets/img/Bridge.jpeg" alt="Foto Bridge" loading="lazy" />
+          <img src="assets/img/Germnany.jpeg" alt="Foto Germany" loading="lazy" />
+
+          <img src="assets/img/Marisael-ring.jpeg" alt="Foto Marisael ring" loading="lazy" />
+          <img src="assets/img/Mateo-Ring.jpeg" alt="Foto Mateo ring" loading="lazy" />
+          <img src="assets/img/Mountains.jpeg" alt="Foto Mountains" loading="lazy" />
+
+          <img src="assets/img/surprise.jpeg" alt="Foto surprise" loading="lazy" />
+          <img src="assets/img/together-ring.jpeg" alt="Foto together ring" loading="lazy" />
         </div>
       </div>
     </section>
 
+    <!-- RSVP -->
     <section class="section section--alt" id="rsvp">
       <div class="container grid">
         <div>
           <h2>Confirmación de asistencia</h2>
-          <p>
-            Por favor confirma antes del <strong>05 de abril</strong>.
-          </p>
-          <!-- Reemplaza el href con tu Google Form / WhatsApp / link de RSVP -->
-          <a class="btn btn--primary" href="#" target="_blank" rel="noopener">
+          <p>Por favor confirma antes del <strong>05 de abril</strong>.</p>
+
+          <a class="btn btn--primary"
+             href="https://forms.gle/6MHtrgq1v4Ea2NAs5"
+             target="_blank" rel="noopener">
             Confirmar ahora
           </a>
         </div>
@@ -143,9 +172,11 @@
             <li>Clima similar a Bogotá: abrígate</li>
           </ul>
 
-          <a class="btn btn--ghost" href="Matisa%20Wedding.pdf" download>
-            Descargar invitación (PDF)
-          </a>
+          <div style="margin-top:14px;">
+            <a class="btn btn--ghost" href="Matisa_Wedding.pdf" download>
+              Descargar invitación (PDF)
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -154,7 +185,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <span>Isabel & Mateo · 01 Mayo 2026</span>
-      <span class="muted">Hecho con ♥ en GitHub Pages</span>
+      <span class="muted">GitHub Pages</span>
     </div>
   </footer>
 
@@ -166,5 +197,4 @@
   <script src="https://www.youtube.com/iframe_api"></script>
   <script src="assets/js/app.js"></script>
 </body>
-
 </html>
