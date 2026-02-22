@@ -29,6 +29,7 @@ a{ color:inherit; text-decoration:none; }
 .container{
   width:min(1080px, calc(100% - 32px));
   margin-inline:auto;
+ 
 }
 
 /* =========================
@@ -245,7 +246,7 @@ p{
 #lugar .panel{
   max-width:620px;
   margin-inline:auto;
-  text-align:left;
+  text-align:center;
 }
 /* =========================
    ⭐ CENTRAR SECCIÓN EL Dresscode
@@ -265,6 +266,29 @@ p{
   margin-inline:auto;
 }
 #dresscode .panel{
+  max-width:620px;
+  margin-inline:auto;
+  text-align:left;
+}
+
+/* =========================
+   ⭐ CENTRAR SECCIÓN EL RSVP
+   ========================= */
+
+#rsvp{
+  text-align:center;
+}
+#rsvp .grid{
+  justify-items:center;
+}
+#rsvp .grid > div:first-child{
+  max-width:620px;
+  margin-inline:auto;
+}
+#rsvp .btn{
+  margin-inline:auto;
+}
+#rsvp .panel{
   max-width:620px;
   margin-inline:auto;
   text-align:left;
