@@ -359,3 +359,22 @@ p{
 @media (max-width: 380px){
   .hero__cta{ grid-template-columns:1fr; }
 }
+/* =========================
+   OCULTAR VIDEO YOUTUBE (solo audio)
+   ========================= */
+
+.yt-audio{
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  left: -9999px;
+  top: -9999px;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
+#ytPlayer iframe{
+  width: 1px !important;
+  height: 1px !important;
+}
