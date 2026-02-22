@@ -247,6 +247,28 @@ p{
   margin-inline:auto;
   text-align:left;
 }
+/* =========================
+   ⭐ CENTRAR SECCIÓN EL Dresscode
+   ========================= */
+
+#dresscode{
+  text-align:center;
+}
+#dresscode .grid{
+  justify-items:center;
+}
+#dresscode .grid > div:first-child{
+  max-width:620px;
+  margin-inline:auto;
+}
+#dresscode .btn{
+  margin-inline:auto;
+}
+#dresscode .panel{
+  max-width:620px;
+  margin-inline:auto;
+  text-align:left;
+}
 
 /* =========================
    GALERÍA (mostrar completa)
