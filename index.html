@@ -1,3 +1,6 @@
+<!-- =========================
+ FILE: index.html
+ ========================= -->
 <!doctype html>
 <html lang="es">
 <head>
@@ -15,8 +18,8 @@
   <header class="topbar">
     <div class="container topbar__inner">
       <div class="brand">
-        <div class="brand__title">Isabel & Mateo</div>
-        <div class="brand__subtitle">MAY 01, 2026 · Zipacón, Cundinamarca</div>
+        <div class="brand__title">Isabel &amp; Mateo</div>
+        <div class="brand__subtitle">MAY 01, 2026 · ZIPACÓN, CUNDINAMARCA</div>
       </div>
 
       <button id="musicBtn" class="btn btn--primary" type="button" aria-pressed="false">
@@ -27,7 +30,7 @@
 
   <!-- HERO -->
   <section class="hero" aria-label="Portada">
-    <!-- La imagen principal del hero se define en CSS (styles.css) -->
+    <!-- Fondo del hero se define en CSS -->
     <div class="hero__bg" role="img" aria-label="Foto principal"></div>
 
     <div class="container hero__content">
@@ -56,6 +59,7 @@
         <a class="btn btn--ghost" href="#lugar">Ver ubicación</a>
       </div>
 
+      <!-- Foto Germany en el inicio (y removida de la galería) -->
       <div class="hero__photo">
         <img src="assets/img/Germnany.jpeg" alt="Foto Germany" loading="lazy" />
       </div>
@@ -106,7 +110,7 @@
             <span class="chip">Colores reservados: Terracota</span>
           </div>
 
-          <div class="hero__cta" style="margin-top:14px;">
+          <div class="hero__cta hero__cta--links">
             <a class="btn btn--ghost"
                href="https://fromthewardrobe.com/fall-boho-wedding-guest-dresses-for-october/?utm_source=Pinterest&utm_medium=organic"
                target="_blank" rel="noopener">
@@ -125,7 +129,7 @@
           <h3>Sugerencia de regalo</h3>
           <p class="big">Lluvia de sobres</p>
 
-          <div style="margin-top:14px;">
+          <div class="panel__actions">
             <a class="btn btn--ghost" href="Matisa_Wedding.pdf" target="_blank" rel="noopener">
               Ver invitación (PDF)
             </a>
@@ -134,22 +138,21 @@
       </div>
     </section>
 
-    <!-- GALERÍA (con nombres EXACTOS como están en tu repo) -->
+    <!-- GALERÍA (sin Germany, porque ya está en el hero) -->
     <section class="section" id="galeria">
       <div class="container">
         <h2>Galería</h2>
-          <!--<p class="muted">Fotos desde <code>assets/img/</code></p>-->
+        <p class="muted">Fotos desde <code>assets/img/</code></p>
 
         <div class="gallery">
           <img src="assets/img/Belgium.jpeg" alt="Foto Belgium" loading="lazy" />
           <img src="assets/img/Bridge.jpeg" alt="Foto Bridge" loading="lazy" />
-          <img src="assets/img/Germnany.jpeg" alt="Foto Germany" loading="lazy" />
-
           <img src="assets/img/Marisael-ring.jpeg" alt="Foto Marisael ring" loading="lazy" />
+
           <img src="assets/img/Mateo-Ring.jpeg" alt="Foto Mateo ring" loading="lazy" />
           <img src="assets/img/Mountains.jpeg" alt="Foto Mountains" loading="lazy" />
-
           <img src="assets/img/surprise.jpeg" alt="Foto surprise" loading="lazy" />
+
           <img src="assets/img/together-ring.jpeg" alt="Foto together ring" loading="lazy" />
         </div>
       </div>
@@ -176,7 +179,7 @@
             <li>Clima similar a Bogotá: abrígate</li>
           </ul>
 
-          <div style="margin-top:14px;">
+          <div class="panel__actions">
             <a class="btn btn--ghost" href="Matisa_Wedding.pdf" download>
               Descargar invitación (PDF)
             </a>
@@ -188,7 +191,7 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <span>Isabel & Mateo · 01 Mayo 2026</span>
+      <span>Isabel &amp; Mateo · 01 Mayo 2026</span>
       <span class="muted">GitHub Pages</span>
     </div>
   </footer>
@@ -202,4 +205,3 @@
   <script src="assets/js/app.js"></script>
 </body>
 </html>
-
