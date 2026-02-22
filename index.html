@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Isabel & Mateo — 01 Mayo 2026 — Zipacón, Cundinamarca. RSVP antes del 05 Abril 2026." />
+  <title>Isabel & Mateo | 01 Mayo 2026</title>
+
+  <link rel="preconnect" href="https://www.youtube-nocookie.com" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+  <!-- Barra superior -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__title">Isabel & Mateo</div>
+        <div class="brand__subtitle">MAY 01, 2026 · Zipacón, Cundinamarca</div>
+      </div>
+
+      <button id="musicBtn" class="btn btn--primary" type="button" aria-pressed="false">
+        Activar música
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Portada">
+    <div class="hero__bg" role="img" aria-label="Foto principal"></div>
+    <div class="container hero__content">
+      <h1>¡Acompáñanos!</h1>
+      <p class="lead">
+        Hemos elegido celebrar sin prisa, rodeados de familia y amigos, con amor, alegría y calma.
+      </p>
+
+      <div class="hero__cards">
+        <div class="card">
+          <div class="card__k">Fecha</div>
+          <div class="card__v">01 Mayo 2026</div>
+        </div>
+        <div class="card">
+          <div class="card__k">Recepción</div>
+          <div class="card__v">2:00 pm (llega a tiempo)</div>
+        </div>
+        <div class="card">
+          <div class="card__k">RSVP</div>
+          <div class="card__v">Antes del 05 Abril 2026</div>
+        </div>
+      </div>
+
+      <div class="hero__cta">
+        <a class="btn btn--ghost" href="#rsvp">Confirmar asistencia</a>
+        <a class="btn btn--ghost" href="#lugar">Ver ubicación</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIONES -->
+  <main>
+    <section class="section" id="lugar">
+      <div class="container grid">
+        <div>
+          <h2>El lugar</h2>
+          <p>
+            La boda se realizará en la <strong>Finca Hacienda Caracolí</strong>, ubicada en <strong>Zipacón, Cundinamarca</strong>.
+          </p>
+          <p class="muted">
+            Clima: a la misma altura de Bogotá — trae abrigo.
+          </p>
+
+          <!-- Reemplaza el href por tu link real de Google Maps si lo tienes -->
+          <a class="btn btn--primary" href="#" target="_blank" rel="noopener">
+            Abrir en Google Maps
+          </a>
+        </div>
+
+        <div class="panel">
+          <h3>Agenda</h3>
+          <ul class="list">
+            <li><strong>2:00 pm</strong> — Inicio recepción</li>
+            <li>Espacio para retoques en la hacienda</li>
+            <li>Celebración solo para mayores de edad</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="dresscode">
+      <div class="container grid">
+        <div>
+          <h2>Dress code</h2>
+          <p>
+            Diviértete escogiendo tu pinta: camisa vintage, vestido vaporoso, tenis/botas/sandalias.
+            Lleva saco o bufanda.
+          </p>
+
+          <div class="chips">
+            <span class="chip">Colores reservados: Blanco marfil</span>
+            <span class="chip">Colores reservados: Terracota</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Sugerencia de regalo</h3>
+          <p class="big">Lluvia de sobres</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="galeria">
+      <div class="container">
+        <h2>Galería</h2>
+        <p class="muted">Cambia las fotos en <code>assets/img/</code></p>
+
+        <div class="gallery">
+          <img src="assets/img/photo1.jpg" alt="Foto 1" loading="lazy" />
+          <img src="assets/img/photo2.jpg" alt="Foto 2" loading="lazy" />
+          <img src="assets/img/photo3.jpg" alt="Foto 3" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="rsvp">
+      <div class="container grid">
+        <div>
+          <h2>Confirmación de asistencia</h2>
+          <p>
+            Por favor confirma antes del <strong>05 de abril</strong>.
+          </p>
+          <!-- Reemplaza el href con tu Google Form / WhatsApp / link de RSVP -->
+          <a class="btn btn--primary" href="#" target="_blank" rel="noopener">
+            Confirmar ahora
+          </a>
+        </div>
+
+        <div class="panel">
+          <h3>Notas</h3>
+          <ul class="list">
+            <li>Celebración solo para mayores de edad</li>
+            <li>Clima similar a Bogotá: abrígate</li>
+          </ul>
+
+          <a class="btn btn--ghost" href="Matisa%20Wedding.pdf" download>
+            Descargar invitación (PDF)
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>Isabel & Mateo · 01 Mayo 2026</span>
+      <span class="muted">Hecho con ♥ en GitHub Pages</span>
+    </div>
+  </footer>
+
+  <!-- YouTube Player (oculto) -->
+  <div class="yt-audio" aria-hidden="true">
+    <div id="ytPlayer"></div>
+  </div>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
