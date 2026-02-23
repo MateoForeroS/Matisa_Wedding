@@ -3,63 +3,55 @@
 // Música de fondo con MP3
 // =========================
 
-const audio = document.getElementById("bgAudio");
-const btn = document.getElementById("musicBtn");
+document.addEventListener("DOMContentLoaded", () => {
+  const audio = document.getElementById("bgAudio");
+  const btn = document.getElementById("musicBtn");
 
-let isPlaying = false;
+  if (!audio || !btn) {
+    console.warn("No se encontró #bgAudio o #musicBtn");
+    return;
+  }
 
-function setButtonState(pressed) {
-  if (!btn) return;
-  btn.setAttribute("aria-pressed", String(pressed));
-  btn.textContent = pressed ? "Pausar música" : "Activar música";
-}
+  let isPlaying = false;
 
-async function playAudio() {
-  if (!audio) return;
+  function setButtonState(pressed) {
+    btn.setAttribute("aria-pressed", String(pressed));
+    btn.textContent = pressed ? "Pausar" : "Play";
+  }
 
-  try {
-    audio.volume = 0.6;      // volumen inicial
-    await audio.play();      // en móvil requiere interacción del usuario
-    isPlaying = true;
-    setButtonState(true);
-  } catch (err) {
-    // Si el navegador bloquea autoplay, se activará al primer toque
+  async function playAudio() {
+    try {
+      audio.volume = 0.65;
+      await audio.play();
+      isPlaying = true;
+      setButtonState(true);
+    } catch (err) {
+      // Autoplay suele bloquearse si no hubo interacción
+      console.warn("Bloqueado por el navegador, toca/clic para iniciar.", err);
+      isPlaying = false;
+      setButtonState(false);
+    }
+  }
+
+  function pauseAudio() {
+    audio.pause();
     isPlaying = false;
     setButtonState(false);
   }
-}
 
-function pauseAudio() {
-  if (!audio) return;
-  audio.pause();
-  isPlaying = false;
-  setButtonState(false);
-}
+  btn.addEventListener("click", async () => {
+    if (!isPlaying) await playAudio();
+    else pauseAudio();
+  });
 
-async function toggleAudio() {
-  if (!audio) return;
-
-  if (!isPlaying) {
-    await playAudio();
-  } else {
-    pauseAudio();
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  setButtonState(false);
-
-  if (btn) btn.addEventListener("click", toggleAudio);
-
-  // Mejor UX móvil: primer toque en cualquier parte intenta iniciar la música
+  // UX móvil: primer toque en cualquier parte intenta iniciar
   const oneTime = async () => {
     if (!isPlaying) await playAudio();
+    window.removeEventListener("pointerdown", oneTime);
   };
+  window.addEventListener("pointerdown", oneTime, { passive: true });
 
-  window.addEventListener("pointerdown", oneTime, { once: true });
-
-  // Opcional: intenta precargar un poco
-  if (audio) {
-    audio.load();
-  }
+  // Pre-carga
+  audio.load();
+  setButtonState(false);
 });
