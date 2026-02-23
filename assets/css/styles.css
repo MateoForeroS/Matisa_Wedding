@@ -226,6 +226,17 @@ p{
   padding:18px;
   box-shadow: var(--shadow);
 }
+.panel .list{
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.panel .list li{
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
 
 /* =========================
    ⭐ CENTRAR SECCIÓN EL LUGAR
@@ -359,6 +370,7 @@ p{
 @media (max-width: 380px){
   .hero__cta{ grid-template-columns:1fr; }
 }
+
 /* =========================
    OCULTAR VIDEO YOUTUBE (solo audio)
    ========================= */
