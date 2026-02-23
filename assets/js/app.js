@@ -1,74 +1,65 @@
-/* =========================
- FILE: assets/js/app.js
- ========================= */
-/* global YT */
+// =========================
+// FILE: assets/js/app.js
+// Música de fondo con MP3
+// =========================
 
-let player = null;
-let isReady = false;
-let isPlayingAudio = false;
+const audio = document.getElementById("bgAudio");
+const btn = document.getElementById("musicBtn");
 
-const VIDEO_ID = "62WV4tFEh0Q";
+let isPlaying = false;
 
 function setButtonState(pressed) {
-  const btn = document.getElementById("musicBtn");
   if (!btn) return;
   btn.setAttribute("aria-pressed", String(pressed));
   btn.textContent = pressed ? "Pausar música" : "Activar música";
 }
 
-window.onYouTubeIframeAPIReady = function () {
-  player = new YT.Player("ytPlayer", {
-    videoId: VIDEO_ID,
-    playerVars: {
-      autoplay: 1,
-      mute: 1,          // inicia en mute para que el autoplay no sea bloqueado
-      controls: 0,
-      playsinline: 1,
-      loop: 1,
-      playlist: VIDEO_ID, // necesario para loop
-      modestbranding: 1,
-      rel: 0
-    },
-    events: {
-      onReady: () => {
-        isReady = true;
-        try { player.playVideo(); } catch (e) {}
-      }
-    }
-  });
-};
-
-function toggleMusic() {
-  if (!isReady || !player) return;
-
-  if (!isPlayingAudio) {
-    try {
-      player.unMute();
-      player.setVolume(60);
-      player.playVideo();
-      isPlayingAudio = true;
-      setButtonState(true);
-    } catch (e) {}
-    return;
-  }
+async function playAudio() {
+  if (!audio) return;
 
   try {
-    player.pauseVideo();
-    isPlayingAudio = false;
+    audio.volume = 0.6;      // volumen inicial
+    await audio.play();      // en móvil requiere interacción del usuario
+    isPlaying = true;
+    setButtonState(true);
+  } catch (err) {
+    // Si el navegador bloquea autoplay, se activará al primer toque
+    isPlaying = false;
     setButtonState(false);
-  } catch (e) {}
+  }
+}
+
+function pauseAudio() {
+  if (!audio) return;
+  audio.pause();
+  isPlaying = false;
+  setButtonState(false);
+}
+
+async function toggleAudio() {
+  if (!audio) return;
+
+  if (!isPlaying) {
+    await playAudio();
+  } else {
+    pauseAudio();
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("musicBtn");
-  if (btn) btn.addEventListener("click", toggleMusic);
+  setButtonState(false);
 
-  // Primer toque en cualquier parte activa música (mejor UX móvil)
-  const oneTime = () => {
-    if (!isPlayingAudio) toggleMusic();
-    window.removeEventListener("pointerdown", oneTime);
+  if (btn) btn.addEventListener("click", toggleAudio);
+
+  // Mejor UX móvil: primer toque en cualquier parte intenta iniciar la música
+  const oneTime = async () => {
+    if (!isPlaying) await playAudio();
   };
+
   window.addEventListener("pointerdown", oneTime, { once: true });
 
-  setButtonState(false);
+  // Opcional: intenta precargar un poco
+  if (audio) {
+    audio.load();
+  }
 });
