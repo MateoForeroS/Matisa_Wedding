@@ -212,12 +212,246 @@
   </div>
 
   <!--<script src="https://www.youtube.com/iframe_api"></script>-->
- <audio id="bgAudio" preload="auto" loop>
-  <source src="assets/audio/cancion.mp3" type="audio/mpeg" />
- </audio>
+<!-- =========================
+ FILE: index.html
+ ========================= -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Isabel & Mateo — 01 Mayo 2026 — Zipacón, Cundinamarca. RSVP antes del 05 Abril 2026." />
+  <title>Isabel & Mateo | 01 Mayo 2026</title>
+
+  <link rel="preconnect" href="https://www.youtube-nocookie.com" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+ 
+<body>
+  <!-- Barra superior -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__title">Isabel &amp; Mateo</div>
+        <div class="brand__subtitle">MAY 01, 2026 · ZIPACÓN, CUNDINAMARCA</div>
+      </div>
+
+
+      <button id="musicBtn" class="btn btn--primary" type="button" aria-pressed="false">
+        Play
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Inicio">
+    <!-- Fondo del hero se define en CSS -->
+    <div class="hero__bg" role="img" aria-label="Foto principal"></div>
+
+    <div class="container hero__content">
+      <h1>¡Isabel & Mateo!</h1>
+      <p class="lead">
+
+      <div class="hero__cards">
+        <div class="card">
+          <div class="card__k">Fecha</div>
+          <div class="card__v">01 Mayo 2026</div>
+        </div>
+        <div class="card">
+          <div class="card__k">Zipacón, Cundinamarca</div>
+          <div class="card__v">2:00 pm</div>
+        </div>
+        <div class="card">
+          <div class="card__k">RSVP</div>
+          <div class="card__v">Antes del 05 Abril 2026</div>
+        </div>
+      </div>
+
+      <div class="hero__cta">
+        <a class="btn btn--ghost" href="#rsvp">Confirmar asistencia</a>
+        <a class="btn btn--ghost" href="#lugar">Ver ubicación</a>
+      </div>
+
+      <!-- Foto Germany en el inicio (y removida de la galería) -->
+      <div class="hero__photo">
+        <img src="assets/img/Germnany.jpeg" alt="Foto Germany" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <main>
+   <section class="hero" aria-label="Portada">
+    <!-- Fondo del hero se define en CSS -->
+    <div class="container hero__content">
+     <h1>¡Acompáñanos!</h1>
+     <p class="lead">
+       Hemos elegido celebrar sin prisa, rodeados de familia y amigos, con amor, alegría y calma. 
+       No se trata hoy de perfección, sino de presencia. De compartir, celebrar y guardar en estas páginas lo vivido junto a quienes amamos. <br>
+       Un dia para recordar, personas para agradecer, historias por guardar. 
+       Aquí comienza una nueva historia para MATISA y ustedes son parte de ello.
+      </p>
+     
+      <!-- Foto Germany en el inicio (y removida de la galería) -->
+      <div class="hero__photo">
+        <img src="assets/img/Belgium.jpeg" alt="Foto Belgium" loading="lazy" />
+      </div>
+    </div>
+  </section>
+   
+    <!-- EL LUGAR -->
+    <section class="section" id="lugar">
+      <div class="container grid">
+        <div>
+          <h2>El lugar</h2>
+          <p>
+            La boda se realizará en la <strong>Finca Hacienda Caracolí</strong>, ubicada en <strong>Zipacón, Cundinamarca</strong>.
+          </p>       
+         <a class="btn btn--ghost" href="https://maps.app.goo.gl/poF6jXEXiXpYqFWf9">
+          <span class="icon">
+           <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"
+             fill="currentColor"/>
+           </svg>
+          </span>
+          Ubicación
+         </a>
+        </div>
+
+        <div class="panel">
+          <h3>Recepción</h3>
+          <ul class="list">
+            <li><strong>Inicio recepción - 2:00 pm</strong></li>
+            <li>Si necesitas retocarte, tendrás espacio en la hacienda...</li>
+            <li>Clima: a la misma altura de Bogotá — trae abrigo.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- DRESS CODE -->
+    <section class="section section--alt" id="dresscode">
+      <div class="container grid">
+        <div>
+          <h2>Dress code</h2>
+          <p>
+            ¡Diviertete escogiendo tu pinta! busca en tu armario, desempolva esa camisa vintage, ese vestido vaporoso! <br>
+            Tenis, botas, sandalias. Recuerda llevar saco o bufanda.
+          </p>
+
+          <div class="chips">
+            <span class="chip">Colores reservados: 
+             <strong>Blanco marfil y Terracota</strong>
+            </span>
+          </div>
+         <div class="hero__photo">
+          <img src="assets/img/sugerencias.png" alt="Foto sugerencias" loading="lazy" />
+         </div>
+
+          <div class="hero__cta hero__cta--links">
+            <a class="btn btn--ghost"
+               href="https://pin.it/6fNvNgHRb"
+               target="_blank" rel="noopener">
+              Ideas Para Ellas
+            </a>
+
+            <a class="btn btn--ghost"
+               href="https://es.pinterest.com/search/pins/?q=invitados%20boda%20boho%20chic%20hombre&rs=ac&len=21&source_id=ac_omaHewY7&eq=invitados%20boda%20boho%20c&etslf=13181"
+               target="_blank" rel="noopener">
+              Ideas Para Ellos
+            </a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Sugerencia de Colores</h3>
+          <div class="panel__actions">
+            <a class="btn btn--ghost" href="https://www.creativefabrica.com/wp-content/uploads/2021/03/09/Procreate-Color-Palette-Boho-Chic-Graphics-9404932-1.jpeg" target="_blank" rel="noopener">
+              Ver Colores
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA (sin Germany, porque ya está en el hero) -->
+    <section class="section" id="galeria">
+      <div class="container">
+       <div class="gallery">
+          <img src="assets/img/Marisael-ring.jpeg" alt="Foto Marisael ring" loading="lazy" />
+          <img src="assets/img/Mateo-Ring.jpeg" alt="Foto Mateo ring" loading="lazy" />
+          <img src="assets/img/together-ring.jpeg" alt="Foto together ring" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="section section--alt" id="rsvp">
+      <div class="container grid">
+        <div>
+          <h2>Confirmación de asistencia</h2>
+          <p>Por favor confirma antes del <strong>05 de abril</strong>.</p>
+
+          <a class="btn btn--primary"
+             href="https://forms.gle/6MHtrgq1v4Ea2NAs5"
+             target="_blank" rel="noopener">
+            Confirmar ahora
+          </a>
+        </div>
+
+        <div class="panel">
+          <h3>Notas</h3>
+          <ul class="list">
+            <li><strong> Celebración solo para mayores de edad </strong></li>
+            <li>Clima similar a Bogotá: abrígate</li>
+          </ul>
+
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>Isabel &amp; Mateo · 01 Mayo 2026</span>
+      <span class="muted">MatIsa Pages</span>
+    </div>
+  </footer>
+
+  <!-- YouTube Player (oculto) 
+  <div class="yt-audio" aria-hidden="true">
+    <div id="ytPlayer"></div>
+  </div>
+
+  <!--<script src="https://www.youtube.com/iframe_api"></script>-->
+  <audio id="bgAudio" preload="metadata" loop playsinline>
+    <source src="assets/audio/cancion.mp3" type="audio/mpeg" />
+  </audio>
   <script src="assets/js/app.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+
 
 
 
