@@ -185,6 +185,12 @@ a{ color:inherit; text-decoration:none; }
   margin-left:auto;
   margin-right:auto;
 }
+/* Contenedor de botones debajo de imágenes */
+.hero__cta--links,
+.ideas-cta{
+  margin-top: 26px;
+}
+
 
 /* =========================
    SECCIONES
